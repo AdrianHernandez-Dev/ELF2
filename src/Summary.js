@@ -1,6 +1,6 @@
 import React from 'react';
 import Option from './Option'
-import Features from './Features';
+
 
 function Summary (props){
   return Object.keys(props.selected).map((feature, idx) => {

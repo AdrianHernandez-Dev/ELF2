@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Features from './Features';
-import Summary from './Summary';
-import Total from './Total';
-
-
-
+import FEATURES from './FEATURE';
+import MainSummary from './MainSummary';
+import Nav from './Nav';
 
 
 
@@ -40,29 +38,16 @@ class App extends Component {
 
 render(){
     return (
+      
       <div className="App">
-        <header>
-          <h1>ELF Computing | Laptops</h1>
-        </header>
+        <Nav />
         <main>
-          <form className="main__form">
-            <h2>Customize your laptop</h2>
-            <Features features={this.props.features}
+            <Features features={FEATURES}
             selected={this.state.selected}
             updateFeature={this.updateFeature}/>
-          </form>
-          <section className="main__summary">
-            <h2>Your cart</h2>
-            <Summary selected={this.state.selected}/>
-            <div className="summary__total">
-              <div className="summary__total__label">
-                <Total selected={this.state.selected}/>
-              </div>
-              <div className="summary__total__value">
-                <Total selected={this.state.selected}/>
-              </div>
-            </div>
-          </section>
+            <MainSummary 
+            selected={this.state.selected}
+            />
         </main>
       </div>
     );

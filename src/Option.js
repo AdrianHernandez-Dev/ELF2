@@ -1,6 +1,6 @@
 import React from 'react';
 import USCurrencyFormat from './USCurrencyFormat';
-import Feature from './Features';
+
 
 
 class Option extends React.Component {
