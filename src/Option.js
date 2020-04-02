@@ -4,15 +4,15 @@ import Feature from './Features';
 
 
 class Option extends React.Component {
-  render(props){
+  render(){
     return(
-<div className="summary__option" key={props.featureHash}>
+<div className="summary__option" >
 <div className="summary__option__label">
-  <Feature />
+  {this.props.feature}
   </div>
-<div className="summary__option__value">{props.selectedOption.name}</div>
+<div className="summary__option__value">{this.props.selectedOption.name}</div>
 <div className="summary__option__cost">
-  {USCurrencyFormat.format(props.selectedOption.cost)}
+    {USCurrencyFormat.format(this.props.selectedOption.cost)}
 </div>
 </div>
     )}

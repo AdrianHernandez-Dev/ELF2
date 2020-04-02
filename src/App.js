@@ -3,7 +3,7 @@ import './App.css';
 import Features from './Features';
 import Summary from './Summary';
 import Total from './Total';
-import USCurrencyFormat from './USCurrencyFormat'
+
 
 
 
@@ -30,7 +30,15 @@ class App extends Component {
       }
     }
   };
-render(props){
+  updateFeature = (feature, newValue) => {
+    const selected = Object.assign({}, this.state.selected);
+    selected[feature] = newValue;
+    this.setState({
+      selected
+    });
+  };
+
+render(){
     return (
       <div className="App">
         <header>
@@ -39,7 +47,9 @@ render(props){
         <main>
           <form className="main__form">
             <h2>Customize your laptop</h2>
-            <Features features={props.features}/>
+            <Features features={this.props.features}
+            selected={this.state.selected}
+            updateFeature={this.updateFeature}/>
           </form>
           <section className="main__summary">
             <h2>Your cart</h2>
@@ -49,7 +59,7 @@ render(props){
                 <Total selected={this.state.selected}/>
               </div>
               <div className="summary__total__value">
-                {USCurrencyFormat.format(total)}
+                <Total selected={this.state.selected}/>
               </div>
             </div>
           </section>
